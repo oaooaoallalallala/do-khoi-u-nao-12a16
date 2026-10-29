@@ -12,6 +12,8 @@ The API is in `demo/backend/app.py` and needs the Python dependencies in `requir
 
 The model file is about 105 MB and is intentionally excluded from Git by `.gitignore`; GitHub also rejects individual files above 100 MiB. Host the model as a separate artifact or persistent mounted file, then make it available at `/app/unet_best.pth` to the backend.
 
-Vercel's static deployment does not run this Flask/PyTorch API. Deploy it on a Python-capable service that supports the model and dependencies, then configure its URL in the frontend.
+Vercel's static deployment does not run this Flask/PyTorch API. The root `Dockerfile` prepares the API for a Hugging Face Docker Space on port `7860`. Create a **public Docker Space**, upload this project branch with Git LFS tracking `*.pth`, and add `unet_best.pth` at the repository root. This makes the model downloadable by anyone; do not use this deployment option if the model must remain private.
+
+After the Space finishes building, open **Cài đặt kết nối máy chủ AI** on the Vercel site and enter the Space URL (for example, `https://<space-owner>-<space-name>.hf.space`). The API enables CORS for browser requests. Vercel and the backend are separate services; the frontend does not connect to the API until this URL is set.
 
 The training notebook is published as `main/unet-segmentation-project-public.ipynb` with saved outputs removed. Its original output-filled copy remains local and is excluded because it embeds image data.

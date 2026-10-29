@@ -25,7 +25,7 @@ print(f"🖥️  Using device: {DEVICE}")
 def load_model():
     model = smp.UnetPlusPlus(
         encoder_name="resnet34",
-        encoder_weights="imagenet",
+        encoder_weights=None,
         in_channels=3,
         classes=1
     )
