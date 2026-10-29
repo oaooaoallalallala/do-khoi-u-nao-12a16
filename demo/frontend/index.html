@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101b33">
+    <meta name="description" content="Dự án phân đoạn khối u não bằng AI của học sinh lớp 12A16, THPT Phú Nhuận.">
+    <title>Phân đoạn u não bằng AI | 12A16</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="./" aria-label="Trang chủ">
+            <span class="brand-mark" aria-hidden="true">+</span>
+            <span>Neuro<span class="brand-accent">Scan</span></span>
+        </a>
+        <span class="header-label">DỰ ÁN KHOA HỌC · 2026–2027</span>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="page-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="pulse-dot"></span> TRÍ TUỆ NHÂN TẠO TRONG Y TẾ</p>
+                <h1 id="page-title">Phân đoạn u não<br><span>bằng AI</span></h1>
+                <p class="hero-description">Tải ảnh MRI lên để mô hình U-Net phân tích và trực quan hóa vùng nghi ngờ.</p>
+                <div class="project-credit">
+                    <span class="credit-label">THỰC HIỆN BỞI</span>
+                    <p>Tôn Thất Thanh Tuấn · Phạm Ngọc Hải Đông<br>Nguyễn Đăng Khoa · Võ Nhật Gia Bảo</p>
+                    <span class="school-line">Lớp 12A16 <span aria-hidden="true">/</span> THPT Phú Nhuận</span>
+                </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="scan-cross">+</div>
+                <div class="brain-illustration">
+                    <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M88 37c-7-15-27-13-31 2-17-4-29 12-24 27-14 8-14 27-2 36-8 15 0 31 16 34 3 17 20 24 34 15l7-6V37Z" stroke="currentColor" stroke-width="3"/>
+                        <path d="M92 37c7-15 27-13 31 2 17-4 29 12 24 27 14 8 14 27 2 36 8 15 0 31-16 34-3 17-20 24-34 15l-7-6V37Z" stroke="currentColor" stroke-width="3"/>
+                        <path d="M59 44c-3 8 1 16 8 19m-31 9c9-3 17 0 20 8m-23 23c7-5 16-4 21 2m-5 28c6-7 14-9 22-5m1-76c8 2 12 8 12 16m-28 1c8 0 13 6 13 13m-4 25c7-5 15-3 18 4m34-58c3 8-1 16-8 19m31 9c-9-3-17 0-20 8m23 23c-7-5-16-4-21 2m5 28c-6-7-14-9-22-5m-1-76c-8 2-12 8-12 16m28 1c-8 0-13 6-13 13m4 25c-7-5-15-3-18 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="91" cy="91" r="13" fill="#6DE0D2" fill-opacity=".2" stroke="#6DE0D2" stroke-width="2"/>
+                        <circle cx="91" cy="91" r="4" fill="#6DE0D2"/>
+                    </svg>
+                </div>
+                <span class="art-caption">AI · U-NET</span>
+            </div>
+        </section>
+
+        <section class="workspace" aria-label="Công cụ phân tích ảnh">
+            <div class="workspace-heading">
+                <div>
+                    <p class="eyebrow">BẮT ĐẦU PHÂN TÍCH</p>
+                    <h2>Thử nghiệm với ảnh MRI</h2>
+                </div>
+                <div class="connection-status" id="connection-status" data-state="checking" role="status">
+                    <span class="status-dot"></span>
+                    <span id="connection-text">Đang kiểm tra kết nối…</span>
+                </div>
+            </div>
+
+            <div class="workspace-grid">
+                <div class="controls">
+                    <section class="tool-card upload-card">
+                        <div class="card-heading">
+                            <span class="step-number">01</span>
+                            <div>
+                                <h3>Tải ảnh của bạn</h3>
+                                <p>Chọn ảnh MRI từ thiết bị</p>
+                            </div>
+                        </div>
+                        <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Chọn hoặc kéo thả ảnh MRI">
+                            <input type="file" id="file-input" accept="image/*">
+                            <span class="upload-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7 9m5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            <strong>Kéo thả ảnh vào đây</strong>
+                            <span class="drop-hint">hoặc <span class="browse-link">chọn từ thiết bị</span></span>
+                            <span class="file-hint">Hỗ trợ JPG, PNG</span>
+                        </div>
+                    </section>
+
+                    <section class="tool-card sample-card">
+                        <div class="card-heading">
+                            <span class="step-number">02</span>
+                            <div>
+                                <h3>Ảnh mẫu</h3>
+                                <p>Thử nhanh với dữ liệu có sẵn</p>
+                            </div>
+                        </div>
+                        <label class="sr-only" for="test-image-select">Chọn ảnh mẫu</label>
+                        <select id="test-image-select" class="select-box" disabled>
+                            <option value="">Đang tải danh sách ảnh mẫu…</option>
+                        </select>
+                        <p class="sample-note" id="sample-note">Ảnh mẫu hiển thị khi máy chủ AI đã kết nối.</p>
+                    </section>
+
+                    <details class="api-settings">
+                        <summary>Cài đặt kết nối máy chủ AI</summary>
+                        <form id="api-form" class="api-form">
+                            <label for="api-url">URL backend Flask</label>
+                            <div class="api-input-row">
+                                <input id="api-url" type="url" inputmode="url" placeholder="https://ten-may-chu-cua-ban">
+                                <button type="submit">Lưu</button>
+                            </div>
+                            <p>Chạy trên Vercel? Nhập URL backend đã triển khai để bật chức năng phân tích.</p>
+                        </form>
+                    </details>
+                </div>
+
+                <section class="results-panel" aria-live="polite">
+                    <div class="results-empty" id="empty-state">
+                        <div class="empty-visual" aria-hidden="true">
+                            <span class="empty-frame"></span>
+                            <span class="empty-plus">+</span>
+                            <span class="empty-wave"></span>
+                        </div>
+                        <h3>Kết quả sẽ hiển thị ở đây</h3>
+                        <p>Chọn ảnh MRI để xem ảnh gốc, mặt nạ dự đoán và ảnh chồng lớp.</p>
+                    </div>
+                    <div class="spinner" id="spinner" aria-label="Đang phân tích"></div>
+                    <p class="error-message" id="error-message" role="alert" hidden></p>
+                    <div class="results" id="results" hidden>
+                        <article class="result-card" id="real-card" hidden>
+                            <h3><span class="result-index">A</span> Ảnh gốc</h3>
+                            <div class="image-container"><img id="real-img" src="" alt="Ảnh MRI gốc"></div>
+                        </article>
+                        <article class="result-card" id="mask-card" hidden>
+                            <h3><span class="result-index">B</span> Mặt nạ dự đoán</h3>
+                            <div class="image-container"><img id="mask-img" src="" alt="Mặt nạ phân đoạn dự đoán"></div>
+                        </article>
+                        <article class="result-card" id="overlay-card" hidden>
+                            <h3><span class="result-index">C</span> Ảnh chồng lớp</h3>
+                            <div class="image-container"><img id="overlay-img" src="" alt="Ảnh MRI với vùng dự đoán được chồng lớp"></div>
+                        </article>
+                        <article class="result-card" id="mask-gt-card" hidden>
+                            <h3><span class="result-index">D</span> Mặt nạ thực tế</h3>
+                            <div class="image-container"><img id="mask-gt-img" src="" alt="Mặt nạ thực tế"></div>
+                        </article>
+                        <article class="result-card" id="overlay-gt-card" hidden>
+                            <h3><span class="result-index">E</span> Đối chiếu thực tế</h3>
+                            <div class="image-container"><img id="overlay-gt-img" src="" alt="Ảnh đối chiếu với vùng thực tế"></div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <p class="disclaimer"><strong>Lưu ý:</strong> Công cụ phục vụ mục đích học tập và minh họa, không thay thế chẩn đoán hoặc tư vấn y khoa.</p>
+    </main>
+
+    <footer>
+        <span>12A16 · THPT Phú Nhuận</span>
+        <span>Tôn Thất Thanh Tuấn · Phạm Ngọc Hải Đông · Nguyễn Đăng Khoa · Võ Nhật Gia Bảo</span>
+        <span>Năm học 2026–2027</span>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+# Virtual environment
+venv/
+.env/
+*.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# PyTorch / TensorFlow model weights
+*.pth
+*.pt
+*.h5
+*.ckpt
+
+# Datasets 
+data/
+datasets/
+demo/external-data/
+demo/static/images/
+demo/static/masks/
+main/unet-segmentation-project.ipynb
+
+# IDE configs
+.vscode/
+.idea/
+
+# Ignore specific files
+render.yaml
+Procfile
+gunicorn.conf.py
+*.sh
+Aptfile

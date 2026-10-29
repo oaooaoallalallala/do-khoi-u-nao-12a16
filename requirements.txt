@@ -1,0 +1,22 @@
+# Flask web framework
+Flask==2.3.3
+flask-cors>=4.0.0
+
+# PyTorch CPU/GPU (latest stable version)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Numpy for numerical operations
+numpy>=1.24.0,<2.0.0
+
+# OpenCV cho xử lý ảnh
+opencv-python-headless>=4.8.0
+
+# Pillow để đọc/ghi ảnh
+Pillow>=10.0.0
+
+# Segmentation Models PyTorch tương thích torch>=2.0
+segmentation-models-pytorch>=0.3.0
+
+# Production WSGI server
+gunicorn>=21.0.0
